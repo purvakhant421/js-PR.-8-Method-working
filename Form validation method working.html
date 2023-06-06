@@ -7,7 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <title>Working Form</title>
-    <link rel="stylesheet" href="registration-form.css">
+    <link rel="stylesheet" href="validation.css">
 </head>
 <style>
    
@@ -20,37 +20,37 @@
     
         <form>
             <div class="row">
-                <div class="mb-3 mt-3 col-lg-6">
-                    <label for="fname"> Enter First Name :</label>
-                    <input type="text" oninput="fnameInput()" class="form-control" id="fname" placeholder="Enter First name">
-                    <span style="color: red;" id="fnameerr" class="err"></span>
+                <div class="mb-3 mt-3">
+                    <label for="fristname"> Enter First Name :</label>
+                    <input type="text" autocomplete ="fristname" class="form-control" id="fristname" placeholder="Enter First name">
+                    <span style="color: red;" id="fristnameerr" class="err"></span>
                 </div>
-                <div class="mb-3 mt-3 col-lg-6">
-                    <label for="lname">Enter Last Name :</label>
-                    <input type="text" oninput="lnameInput()" class="form-control" id="lname" placeholder="Enter last name">
-                    <span style="color: red;" id="lnameerr" class="err"></span>
+                <div class="mb-3 mt-3 ">
+                    <label for="lastname">Enter Last Name :</label>
+                    <input type="text" autocomplete ="lastname" class="form-control" id="lastname" placeholder="Enter last name">
+                    <span style="color: red;" id="lastnameerr" class="err"></span>
                 </div>
             </div>
             <div class="row">
-                <div class="mb-3 mt-3 col-lg-6">
+                <div class="mb-3 mt-3">
                     <label for="email">Email :</label>
-                    <input type="email" oninput="emailInput()" class="form-control" id="email" placeholder="Enter email">
+                    <input type="email" autocomplete ="email" class="form-control" id="email" placeholder="Enter email">
                     <span style="color: red;" id="emailerr" class="err"></span>
                 </div>
-                <div class="mb-3 mt-3 col-lg-6">
+                <div class="mb-3 mt-3">
                     <label for="phone">Phone :</label>
-                    <input type="tel" oninput="phoneInput()" class="form-control" id="phone" maxlength="10" placeholder="Enter your mobile number">
+                    <input type="tel" autocomplete ="phone" class="form-control" id="phone" maxlength="10" placeholder="Enter your mobile number">
                     <span style="color: red;" id="numberr" class="err"></span>
                 </div>
             </div>
             <div class="row">
-                <div class="mb-3 mt-3 col-lg-6">
+                <div class="mb-3 mt-3">
                     <label for="dob">Date of Birth :</label>
-                    <input type="date" oninput="dobInput()" class="form-control" id="dob" placeholder="Enter your birthdate" required>
+                    <input type="date" class="form-control" id="dob" placeholder="Enter your birthdate" required>
                 </div>
-                <div class="mt-3 col-lg-6">
+                <div class="mt-3 d-flex">
                     <label for="gender">Gender :</label>
-                    <div class="gender d-flex mt-3">
+                    <div class="gender d-flex">
                         <div class="form-check d-flex">
                             <input class="form-check-input" type="radio" name="gender" id="male" value="male">
                             <label class="form-check-label" for="male">Male</label>
@@ -59,16 +59,21 @@
                             <input class="form-check-input" type="radio" name="gender" id="female" value="female">
                             <label class="form-check-label" for="female">Female</label>
                         </div>
+                        <div class="form-check d-flex">
+                            <input class="form-check-input" type="radio" name="gender" id="other" value="other">
+                            <label class="form-check-label" for="other">Other</label>
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="mb-3">
                 <label for="password">Password :</label>
-                <input type="password" oninput="passInput()" class="form-control" id="password" placeholder="Enter password">
+                <input type="password" class="form-control" id="password" placeholder="Enter password">
                 <span style="color: red;" id="passerr" class="err"></span>
             </div>
-            <button type="button" onclick="save()" class="btn btn-secondary form-control mt-4">Submit</button>
+            <button type="button" onclick="save()" class="btn btn-primary form-control mt-4">Submit</button>
         </form><br><br>
+
         <table class="table table-secondary table-striped">
             <tr class="text-center text-capitalize">
                 <th>Name</th>
@@ -96,26 +101,26 @@
 
     <script type="text/javascript">
         var data = [];
-			const fname = document.getElementById('fname');
-			const lname = document.getElementById('lname');
-            const email = document.getElementById('email');
-			const phone = document.getElementById('number');
-            const password = document.getElementById('password');
-            const fnameerr = document.getElementById('fnameerr');
-            const lnameerr = document.getElementById('lnameerr');
+			const fristnameIP = document.getElementById('fristname');
+			const lastnameIP = document.getElementById('lastname');
+            const emailIP = document.getElementById('email');
+			const phoneIP = document.getElementById('phone');
+            const passwordIP = document.getElementById('password');
+            const fristnameerr = document.getElementById('fristnameerr');
+            const lastnameerr = document.getElementById('lastnameerr');
             const emailerr = document.getElementById('emailerr');
             const numberr = document.getElementById('numberr');
             const passerr = document.getElementById('passerr');
 
-            function validateFname(fname) // first name requirment
+            function validatefristname(fristname) // first name requirment
             {
                 var fre = /^[a-zA-Z]{4,20}/;
-                return fre.test(fname);
+                return fre.test(fristname);
             }
-            function validateLname(lname) // last name requirment 
+            function validatelastname(lastname) // last name requirment 
             {
                 var lre = /^[a-zA-Z]{4,20}/;
-                return lre.test(lname);
+                return lre.test(lastname);
             }
             function validateEmail(email) // email requirment form
             {
@@ -127,130 +132,107 @@
 		    	var pre = /^\d{10}$/;
 		    	return pre.test(phone);
 		    }
-            function validatepassword(password)//password requirement
+            function validatepass(password)
             {
-                var pwre = /^(?=.[A-Z])(?=.[a-z])(?=.*[^a-zA-Z0-9",;&|']).{8,16}$/;
+                var pwre = /^(?=.*[A-Z])(?=.*[a-z])(?=.*[^a-zA-Z0-9",;&|']).{8,16}$/;
                 return pwre.test(password);
             }
 
-            // fnameInput.addEventListener("input" , function(){
-            //     const fname = fnameInput.value;
-            //     if(validateFname(fname)){
-            //         fnameerr.textContent = "";
-            //     } else{
-            //         fnameerr.textContent = " Invalid name Format";
-            //     }
-            // });
-            // lnameInput.addEventListener("input" , function(){
-            //     const lname = lnameInput.value;
-            //     if(validateFname(lname)){
-            //         lnameerr.textContent = "";
-            //     } else{
-            //         lnameerr.textContent = " Invalid name Format";
-            //     }
-            // });
-            // emailInput.addEventListener("input" , function(){
-            //     const email = emailInput.value;
-            //     if(validateFname(email)){
-            //         emailerr.textContent = "";
-            //     } else{
-            //         emailerr.textContent = " Invalid email Format";
-            //     }
-            // });
-            // passwordInput.addEventListener("input", function () {
-            //     const password = passwordInput.value;
-            //     if (validatePassword(password)) {
-            //       passworderr.textContent = ""; // Clear error message if valid
-            //     } else {
-            //       passworderr.textContent =
-            //         "Password must be 8-15 characters long, have at least one uppercase letter, one lowercase letter, one number, and one special character (excluding \", ;, &, |, ').";
-            //     }
-            // });
-            // phoneInput.addEventListener("input", function () {
-            //     const phone = phoneInput.value;
-            //     if (validateMobile(phone)) {
-            //       phoneerr.textContent = ""; // Clear error message if valid
-            //     } else {
-            //       phoneerr.textContent = "Invalid phone format";
-            //     }
-            // });
-              
-
-
-        function fnameInput()
-            {
-                // var fname = fnameInput.value;
-                // if(validateFname(fname)){
-                //     fnameerr.textContent = "";
-                // } else{
-                //     fnameerr.textContent = " Invalid name Format";
-                document.getElementById('fnameerr').style.display = "none";
+            fristnameIP.addEventListener("input" , function(){
+                const fristname = fristnameIP.value;
+                if(validatefristname(fristname)){
+                    fristnameerr.textContent = "";
+                } else{
+                    fristnameerr.textContent = " Invalid name Format";
                 }
-        function lnameInput()
-            {
-                document.getElementById('lnameerr').style.display = "none";
-            }
-        function emailInput()
-            {
-               document.getElementById('emailerr').style.display = "none";
-            }
-        function passInput()
-            {
-               document.getElementById('passerr').style.display = "none";
-            }
-        function phoneInput()
-            {
-               document.getElementById('numberr').style.display = "none";
-            }
-
-
+            });
+            lastnameIP.addEventListener("input" , function(){
+                const lastname = lastnameIP.value;
+                if(validatefristname(lastname)){
+                    lastnameerr.textContent = "";
+                } else{
+                    lastnameerr.textContent = " Invalid name Format";
+                }
+            });
+            emailIP.addEventListener("input" , function(){
+                const email = emailIP.value;
+                if(validatefristname(email)){
+                    emailerr.textContent = "";
+                } else{
+                    emailerr.textContent = " Invalid email Format";
+                }
+            });
+            phoneIP.addEventListener("input", function () {
+              const phone = phoneIP.value;
+              if (validatePhone(phone)) {
+                numberr.textContent = ""; 
+              } else {
+                numberr.textContent = "Invalid phone format";
+              }
+            });
+            passwordIP.addEventListener("input", function () {
+                const password = passwordIP.value;
+                if (validatepass(password)) {
+                    passerr.textContent = ""; 
+                } else {
+                    passerr.textContent =
+                    "Password must be 8 characters long, have at least one uppercase, lowercase letter, one number, and one special character.";
+                }
+            });
+        
         function save(){
             try{
-                  let fname = document.getElementById("fname").value;
-                  let lname = document.getElementById("lname").value;
+                  let fristname = document.getElementById("fristname").value;
+                  let lastname = document.getElementById("lastname").value;
                   let email = document.getElementById("email").value;
                   let phone = document.getElementById("phone").value;
-                  let gender = document.getElementById("gender").value;
+                  let gender = document.querySelector('input[name="gender"]:checked').value;
                   let dob = document.getElementById("dob").value;
                   let password = document.getElementById("password").value;
                 if(
-                    validateFname(fname) && validateLname(lname) && validateEmail(email) && validatepassword(password) && validatePhone(phone))
+                    validatefristname(fristname) && validatelastname(lastname) && validateEmail(email) && validatepass(password) && validatePhone(phone))
                 {
-                    let datestring = dob;
-                    let date = datastring.split("-");
-                    let year = parseInt(data[0]);
-                    let month = parseInt(data[1]);
-                    let day = parseInt(data[2]);
+                    let datastring = dob;
+                    let datep = datastring.split(".");
+                    let year = parseInt(datep[0]);
+                    let month = parseInt(datep[1]);
+                    let day = parseInt(datep[2]);
+
+                    let date = new Object();
+                    date.day = day;
+                    date.month = month;
+                    date.year = year;
 
                     let user = new Object();
-                    user.name = fname.concat(" ",lname);
+                    user.name = fristname.concat(" ",lastname);
                     user.email = email;
                     user.phone = phone;
-                    user.dateofbirth = date;
+                    user.d_o_b = date;
                     user.gender = gender;
                     user.password = password;
 
-                if(localStorage.getItem('form') === null || localStorage.getItem('form') === undefined)
+                if(localStorage.getItem('info') === null || localStorage.getItem('info') === undefined)
                 {
                     data.push(user);
-                    localStorage.setItem('form' , JSON.stringify(data));
+                    localStorage.setItem('info' , JSON.stringify(data));
                 }
                 else
                 {
-                    let dt = JSON.parse(localStorage.getItem('form'));
+                    let dt = JSON.parse(localStorage.getItem('info'));
                     dt.push(user);
-                    localStorage.setItem('form',JSON.stringify(dt));
+                    localStorage.setItem('info',JSON.stringify(dt));
                 }
-                alert("record succesfully insert :)");
-                document.getElementById('fname').value = "";
-                document.getElementById('lname').value = "";
+                alert("record succesfully insert.....");
+                document.getElementById('fristname').value = "";
+                document.getElementById('lastname').value = "";
                 document.getElementById('email').value = "";
                 document.getElementById('phone').value = "";
                 document.getElementById('dob').value = "";
-                document.getElementById('gender').value = "";
+                document.querySelector('input[name="gender"]:checked');
                 document.getElementById('password').value = "";
 
                 viewdata();
+                birthrecordData();
                 }
             }
             catch(err){
@@ -259,17 +241,14 @@
 
             function viewdata(){
                     let tbl = "";
-                    let savedata = JSON.parse(localStorage.getItem("form"));
+                    let savedata = JSON.parse(localStorage.getItem("info"));
                     savedata.map((val) => {
                         tbl += `
                                 <tr>
                                     <td>${val.name}</td>
                                     <td>${val.email}</td> 
-                                    <td>${val.phone}</td> 
-                                    <td>${val.dateofbirth.day}
-                                        ${val.dateofbirth.month}
-                                        ${val.dateofbirth.year}
-                                    </td> 
+                                    <td>${val.phone}</td>
+                                    <td>${val.d_o_b.year}</td>
                                     <td>${val.gender}</td>
                                 </tr>
                                `;
@@ -279,20 +258,17 @@
 
             function birthrecordData(){
                 let tbl = "";
-                let savedata = JSON.parse(localStorage.getItem("form"));
-                let birthdate = savedata.filter((val) => {
-                    return val.dateofbirth.year <=  2000;
+                let savedata = JSON.parse(localStorage.getItem("info"));
+                let birthdata = savedata.filter((val, index) => {
+                    return val.d_o_b.year <=  2000;
                 });
-                    savedata.map((val) => {
+                    birthdata.map((val) => {
                         tbl += `
                                 <tr>
                                     <td>${val.name}</td>
                                     <td>${val.email}</td> 
                                     <td>${val.phone}</td> 
-                                    <td>${val.dateofbirth.day}
-                                        ${val.dateofbirth.month}
-                                        ${val.dateofbirth.year}
-                                    </td> 
+                                    <td>${val.d_o_b.year}</td>
                                     <td>${val.gender}</td>
                                 </tr>
                                `;
@@ -301,5 +277,7 @@
                 }
             }
     </script>
+
+    
 </body>
 </html>
