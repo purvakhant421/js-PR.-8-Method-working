@@ -1,0 +1,69 @@
+input{
+    font-family: 'Roboto Condensed', sans-serif;
+}
+body{
+    width: 100%;
+    height: 100%;
+    background: #ecf0f3;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+.container{
+    width: 70%;
+    /*height: 40%;*/
+    border-radius: 20px;
+    padding: 40px;
+    background: #010b49;
+    color: white;
+    box-shadow: 14px 14px 20px #cbced1, -14px -14px 20px white;
+}
+label, input, button{
+    display: block;
+}
+label{
+    margin-bottom: 5px;
+}
+input{
+    background: #ecf0f3;
+    padding: 10px;
+    padding-left: 20px;
+    height: 50px;
+    font-size: 14px;
+    border-radius: 50px;
+    box-shadow: inset 6px 6px 6px #cbced1, inset -6px -6px 6px white;
+}
+button{
+    color: white;
+    letter-spacing: 1px;
+    margin-top: 20px;
+    background: #070602; 
+    width: 50%;
+    height: 40px;
+    border-radius: 20px;
+    cursor: pointer;
+    box-shadow: 6px 6px 6px #a2adb9;
+    transition: all 0.5s;
+}
+/* button:hover{
+    transform: scale(1.0);
+} */
+/*.table{
+    margin-top: 10%;
+}*/
+.form-check{
+    margin-left: 25%;
+    justify-content: space-between;
+}
+.form-check-input{
+    padding: 2px 2px 2px 2px;
+    box-shadow: none;
+}
+.form-check-label{
+    margin-left: 20px;
+}
+.year{
+    text-transform: uppercase;
+    font-size: 30px;
+}
